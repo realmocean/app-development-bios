@@ -9,8 +9,9 @@ import {
     Icon,
     Icons,
     MenuButton,
-    UIController, UIRouteLink, UIView, VStack, Text
+    UIController, UIRouteLink, UIView, VStack, Text, UIRecordContext
 } from "@tuval/forms";
+import { RealmDataContext } from "./DataContext";
 import { AppTaskbar } from "./views/AppSelectMenu";
 import { LeftSidemenu } from "./views/LeftSideMenu";
 
@@ -45,49 +46,55 @@ export class BiosController extends UIController {
                    Icon(Icons[item]).size(25)
                )
            ) */
-            VStack(
-                HStack({ alignment: cLeading })(
-                    HStack({alignment:cLeading})(
-                        Text('  bpmgenesis | ' + getAppName()).fontSize('1.5rem').padding().whiteSpace('nowrap')
-                    ).height().width(600),
-                    AppTaskbar()
-                )
-                    .fontSize('1.2rem')
-                    .height(50).minHeight('50px')
-                    .foregroundColor('white'),
-                HStack({ alignment: cTop })(
-                    LeftSidemenu(false),
-                    /*  VStack({ alignment: cTopLeading })(
-                         HStack(
-                             UIRouteLink('/app/com.tuvalsoft.app.procetra')(
-                                 Icon(Icons.Activity).size(25)
-                             )
-                         ).width(50).height(50).foregroundColor("white")
-                         ,
-                         HStack(
-                             UIRouteLink('/app/com.tuvalsoft.app.organizationmanager')(
-                                 Icon(Icons.AddNewDoc).size(25)
-                             )
-                         ).width(50).height(50).foregroundColor("white"),
-                         MenuButton(),
-                     ).width(50).background('#292F4C'), */
+            RealmDataContext(
+                VStack(
+                    HStack({ alignment: cLeading })(
+                        UIRecordContext(({ data }) =>
+                            HStack({ alignment: cLeading })(
+                                Text(data?.value + ' | ' + getAppName()).fontSize('1.5rem').padding().whiteSpace('nowrap')
+                            ).height().width(600)
+                        ).resource('realminfos').filter({ id: 'REALM_NAME' }),
 
-                    VStack({ alignment: cTopLeading })(
-                        DialogContainer(),
-                        HStack(
-                            Desktop('')
-                        )
-                            .overflow('hidden')
-                            .cornerRadius(20)
+                        AppTaskbar()
                     )
-                        .cornerRadius(20)
-                        .background('#F6F7FB')
+                        .fontSize('1.2rem')
+                        .height(50).minHeight('50px')
+                        .foregroundColor('white'),
+                    HStack({ alignment: cTop })(
+                        LeftSidemenu(false),
+                        /*  VStack({ alignment: cTopLeading })(
+                             HStack(
+                                 UIRouteLink('/app/com.tuvalsoft.app.procetra')(
+                                     Icon(Icons.Activity).size(25)
+                                 )
+                             ).width(50).height(50).foregroundColor("white")
+                             ,
+                             HStack(
+                                 UIRouteLink('/app/com.tuvalsoft.app.organizationmanager')(
+                                     Icon(Icons.AddNewDoc).size(25)
+                                 )
+                             ).width(50).height(50).foregroundColor("white"),
+                             MenuButton(),
+                         ).width(50).background('#292F4C'), */
 
-                        .width('100%'),
+                        VStack({ alignment: cTopLeading })(
+                            DialogContainer(),
+                            HStack(
+                                Desktop('')
+                            )
+                                .overflow('hidden')
+                                .cornerRadius(20)
+                        )
+                            .cornerRadius(20)
+                            .background('#F6F7FB')
+
+                            .width('100%'),
+                    )
+                        .height('calc(100% - 50px)')
                 )
-                    .height('calc(100% - 50px)')
+                    .background('#292F4C')
             )
-                .background('#292F4C')
+
             //.background('#292F4C')
         )
     }
