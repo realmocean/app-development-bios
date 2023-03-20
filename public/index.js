@@ -4655,7 +4655,7 @@ var AppTaskbar = function () { return ((0,_DataContext__WEBPACK_IMPORTED_MODULE_
     var data = _a.data, total = _a.total, isLoading = _a.isLoading;
     return isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spinner)() :
         (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ spacing: 5 }).apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ForEach)(data)(function (appInfo) {
-            return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRouteLink)("/app/com.tuvalsoft.app.workbench")((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIImage)(appInfo.app_icon).width(24).height(24))
+            return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRouteLink)("/app/".concat(appInfo.app_qualified_name))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIImage)(appInfo.app_icon).width(24).height(24))
                 .height(36).width(36)
                 .background({ hover: 'rgba(0,0,0,.6)', default: '' })
                 .cornerRadius(8)
@@ -4666,7 +4666,7 @@ var AppSelectMenu = function () { return ((0,_DataContext__WEBPACK_IMPORTED_MODU
     var data = _a.data, total = _a.total, isLoading = _a.isLoading;
     return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)(isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spinner)()) :
         (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Installed Apps').fontSize('1.2rem').fontWeight('600')).height(50), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ScrollView)({ axes: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cVertical, alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading, spacing: 5 }).apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ForEach)(data)(function (appInfo) {
-            return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRouteLink)("/app/com.tuvalsoft.app.workbench")((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTop, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIImage)(appInfo.app_icon).width(56).height(56), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)(appInfo.app_display_name))
+            return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRouteLink)("/app/".concat(appInfo.app_qualified_name))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTop, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIImage)(appInfo.app_icon).width(56).height(56), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)(appInfo.app_display_name))
                 .width(90)
                 .height(120)
                 .cursor('pointer'))).width().height();

@@ -12,7 +12,7 @@ export const AppTaskbar = () => (
         HStack({  spacing: 5 })(
             ...ForEach(data)(appInfo =>
                 HStack({alignment:cLeading, spacing: 10})(
-                    UIRouteLink(`/app/com.tuvalsoft.app.workbench`)(
+                    UIRouteLink(`/app/${appInfo.app_qualified_name}`)(
                         VStack(
                             UIImage(appInfo.app_icon).width(24).height(24)
                         )
@@ -42,7 +42,7 @@ export const AppSelectMenu = () => (
                             HStack({ alignment: cTopLeading, spacing: 5 })(
                                 ...ForEach(data)(appInfo =>
                                     HStack(
-                                        UIRouteLink(`/app/com.tuvalsoft.app.workbench`)(
+                                        UIRouteLink(`/app/${appInfo.app_qualified_name}`)(
                                             VStack({ alignment: cTop, spacing: 10 })(
                                                 UIImage(appInfo.app_icon).width(56).height(56),
                                                 Text(appInfo.app_display_name)
