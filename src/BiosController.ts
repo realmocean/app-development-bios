@@ -39,6 +39,31 @@ export class BiosController extends UIController {
 
 
     public override LoadView(): UIView {
+        const params: any = new Proxy(new URLSearchParams(window.location.search), {
+            get: (searchParams, prop) => searchParams.get(prop as any),
+        });
+        // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
+        let embeded = params.embeded === 'true'; // "some_value"
+
+        if (embeded) {
+            return (
+                //Routes()
+                /*VStack(
+                   ...ForEach(Object.keys(Icons))(item=>
+                       Icon(Icons[item]).size(25)
+                   )
+               ) */
+
+                VStack(
+                    Desktop('')
+                )
+            )
+
+
+
+
+        }
+
         return (
             //Routes()
             /*VStack(
@@ -87,7 +112,7 @@ export class BiosController extends UIController {
                         )
                             .cornerRadius(20)
                             .background('#F6F7FB')
-
+                            .overflow('hidden')
                             .width('100%'),
                     )
                         .height('calc(100% - 50px)')
