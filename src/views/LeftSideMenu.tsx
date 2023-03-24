@@ -6,7 +6,7 @@ import {
 import React from "react"
 import { getAppFullName, getAppName } from "../BiosController"
 import { RealmOceanDataContext } from "../DataContext"
-import { AppSelectMenu } from "./AppSelectMenu"
+import { AppSelectMenu, runningApps } from "./AppSelectMenu"
 
 
 export const svgElement = (
@@ -97,6 +97,8 @@ export const LeftSidemenu = (isLoading: boolean = false) => {
             tooltip: getAppName(),
             selectable: true,
             view: () => {
+                runningApps.add(getAppFullName());
+                
                 return (
                     RealmOceanDataContext(
                         UIRecordsContext(({ data, total, isLoading }) => (

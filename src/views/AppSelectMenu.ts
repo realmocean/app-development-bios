@@ -1,30 +1,36 @@
-import { EventBus } from "@tuval/core";
-import { cTopLeading, cVertical, ForEach, HStack, ScrollView, Spinner, UIRecordsContext, VStack, Text, RecordsContextClass, UIImage, cTop, UIRouteLink, Button, cLeading, PositionTypes, cCenter, UIRecordContext } from "@tuval/forms";
+import { EventBus, is } from "@tuval/core";
+import { cTopLeading, cVertical, ForEach, HStack, ScrollView, Spinner, UIRecordsContext, VStack, Text, RecordsContextClass, UIImage, cTop, UIRouteLink, Button, cLeading, PositionTypes, cCenter, UIRecordContext, Fragment } from "@tuval/forms";
 import { RealmDataContext, RealmOceanDataContext } from "../DataContext";
 
 
-
+export const runningApps = new Set();
 
 export const AppTaskbar = () => (
     RealmOceanDataContext(
-        UIRecordsContext(({ data, total, isLoading }) =>
-            isLoading ? Spinner() :
-                HStack({ spacing: 5 })(
-                    ...ForEach(data)(appInfo =>
-                        HStack({ alignment: cLeading, spacing: 10 })(
-                            UIRouteLink(`/app/${appInfo.app_qualified_name}`)(
-                                VStack(
-                                    UIImage(appInfo.app_icon).width(24).height(24)
-                                )
-                                    .height(36).width(36)
-                                    .background({ hover: 'rgba(0,0,0,.6)', default: '' })
-                                    .cornerRadius(8)
-                                    .cursor('pointer')
+        HStack({ spacing: 20 })(
+            ...ForEach(Array.from(runningApps))(appName =>
+                UIRecordsContext(({ data, total, isLoading }) =>
+                isLoading ? Fragment() :
+                    VStack({ alignment: cCenter, spacing: 2 })(
+
+                        UIRouteLink(`/app/${appName}`)(
+                            VStack(
+                               
+                                    UIImage((is.array(data) && data.length > 0) ? data[0].app_icon : '').width(24).height(24)
                             )
-                        ).width().height()
-                    )
-                ).position(PositionTypes.Absolute)
-        ).resource('app-mainstore-settings')
+                                .height(36).width(36)
+                                .background({ hover: 'rgba(0,0,0,.6)', default: '' })
+                                .cornerRadius(8)
+                                .cursor('pointer')
+                        ),
+
+                        isLoading ? Fragment() : HStack().width(5).height(5).background('white').cornerRadius('50%')
+                    ).width().height()
+                ).height()
+                    .resource('app-mainstore-settings').filter({ app_qualified_name: appName }),
+            )
+        ).position(PositionTypes.Absolute)
+
     )
 )
 
@@ -32,7 +38,7 @@ export const AppTaskbar = () => (
 export const AppSelectMenu = () => (
     RealmDataContext(
         UIRecordsContext(({ data, total, isLoading }) =>
-            UIRecordsContext(({ data:tenantApps, total, isLoading }) =>
+            UIRecordsContext(({ data: tenantApps, total, isLoading }) =>
                 HStack(
                     isLoading ? HStack(Spinner()) :
                         VStack({ alignment: cTopLeading })(
@@ -45,10 +51,10 @@ export const AppSelectMenu = () => (
                                         HStack(
                                             RealmOceanDataContext(
                                                 UIRecordContext(({ data: appInfo }) =>
-                                                    UIRouteLink(`/app/${appInfo.app_qualified_name}`)(
+                                                    UIRouteLink(`/app/${appInfo?.app_qualified_name}`)(
                                                         VStack({ alignment: cTop, spacing: 10 })(
-                                                            UIImage(appInfo.app_icon).width(56).height(56),
-                                                            Text(appInfo.app_display_name)
+                                                            UIImage(appInfo?.app_icon).width(56).height(56),
+                                                            Text(appInfo?.app_display_name)
                                                         )
                                                             .width(90)
                                                             .height(120)
@@ -64,10 +70,10 @@ export const AppSelectMenu = () => (
                                         HStack(
                                             RealmOceanDataContext(
                                                 UIRecordContext(({ data: appInfo }) =>
-                                                    UIRouteLink(`/app/${appInfo.app_qualified_name}`)(
+                                                    UIRouteLink(`/app/${appInfo?.app_qualified_name}`)(
                                                         VStack({ alignment: cTop, spacing: 10 })(
-                                                            UIImage(appInfo.app_icon).width(56).height(56),
-                                                            Text(appInfo.app_display_name)
+                                                            UIImage(appInfo?.app_icon).width(56).height(56),
+                                                            Text(appInfo?.app_display_name)
                                                         )
                                                             .width(90)
                                                             .height(120)

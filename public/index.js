@@ -4674,11 +4674,14 @@ var RealmBrokerClient;
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AppSelectMenu": () => (/* binding */ AppSelectMenu),
-/* harmony export */   "AppTaskbar": () => (/* binding */ AppTaskbar)
+/* harmony export */   "AppTaskbar": () => (/* binding */ AppTaskbar),
+/* harmony export */   "runningApps": () => (/* binding */ runningApps)
 /* harmony export */ });
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _DataContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../DataContext */ "./src/DataContext.ts");
+/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/core */ "@tuval/core");
+/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_core__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _DataContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../DataContext */ "./src/DataContext.ts");
 var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from, pack) {
     if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
         if (ar || !(i in from)) {
@@ -4690,41 +4693,44 @@ var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from
 };
 
 
-var AppTaskbar = function () { return ((0,_DataContext__WEBPACK_IMPORTED_MODULE_1__.RealmOceanDataContext)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRecordsContext)(function (_a) {
-    var data = _a.data, total = _a.total, isLoading = _a.isLoading;
-    return isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spinner)() :
-        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ spacing: 5 }).apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ForEach)(data)(function (appInfo) {
-            return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRouteLink)("/app/".concat(appInfo.app_qualified_name))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIImage)(appInfo.app_icon).width(24).height(24))
+
+var runningApps = new Set();
+var AppTaskbar = function () { return ((0,_DataContext__WEBPACK_IMPORTED_MODULE_2__.RealmOceanDataContext)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ spacing: 20 }).apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.ForEach)(Array.from(runningApps))(function (appName) {
+    return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRecordsContext)(function (_a) {
+        var data = _a.data, total = _a.total, isLoading = _a.isLoading;
+        return isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Fragment)() :
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cCenter, spacing: 2 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRouteLink)("/app/".concat(appName))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIImage)((_tuval_core__WEBPACK_IMPORTED_MODULE_0__.is.array(data) && data.length > 0) ? data[0].app_icon : '').width(24).height(24))
                 .height(36).width(36)
                 .background({ hover: 'rgba(0,0,0,.6)', default: '' })
                 .cornerRadius(8)
-                .cursor('pointer'))).width().height();
-        })).position(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.PositionTypes.Absolute);
-}).resource('app-mainstore-settings'))); };
-var AppSelectMenu = function () { return ((0,_DataContext__WEBPACK_IMPORTED_MODULE_1__.RealmDataContext)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRecordsContext)(function (_a) {
+                .cursor('pointer')), isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Fragment)() : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)().width(5).height(5).background('white').cornerRadius('50%')).width().height();
+    }).height()
+        .resource('app-mainstore-settings').filter({ app_qualified_name: appName });
+})).position(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.PositionTypes.Absolute))); };
+var AppSelectMenu = function () { return ((0,_DataContext__WEBPACK_IMPORTED_MODULE_2__.RealmDataContext)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRecordsContext)(function (_a) {
     var data = _a.data, total = _a.total, isLoading = _a.isLoading;
-    return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRecordsContext)(function (_a) {
+    return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRecordsContext)(function (_a) {
         var tenantApps = _a.data, total = _a.total, isLoading = _a.isLoading;
-        return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)(isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spinner)()) :
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Installed Apps').fontSize('1.2rem').fontWeight('600')).height(50), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ScrollView)({ axes: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cVertical, alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading, spacing: 5 }).apply(void 0, __spreadArray(__spreadArray([], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ForEach)(data)(function (item) {
-                return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_DataContext__WEBPACK_IMPORTED_MODULE_1__.RealmOceanDataContext)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRecordContext)(function (_a) {
+        return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)(isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Spinner)()) :
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)('Installed Apps').fontSize('1.2rem').fontWeight('600')).height(50), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.ScrollView)({ axes: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cVertical, alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTopLeading, spacing: 5 }).apply(void 0, __spreadArray(__spreadArray([], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.ForEach)(data)(function (item) {
+                return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)((0,_DataContext__WEBPACK_IMPORTED_MODULE_2__.RealmOceanDataContext)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRecordContext)(function (_a) {
                     var appInfo = _a.data;
-                    return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRouteLink)("/app/".concat(appInfo.app_qualified_name))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTop, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIImage)(appInfo.app_icon).width(56).height(56), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)(appInfo.app_display_name))
+                    return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRouteLink)("/app/".concat(appInfo === null || appInfo === void 0 ? void 0 : appInfo.app_qualified_name))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTop, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIImage)(appInfo === null || appInfo === void 0 ? void 0 : appInfo.app_icon).width(56).height(56), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)(appInfo === null || appInfo === void 0 ? void 0 : appInfo.app_display_name))
                         .width(90)
                         .height(120)
                         .cursor('pointer'));
                 }).resource('app-mainstore-settings')
                     .filter({ id: item.app_id }))).width().height();
-            }), false), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ForEach)(tenantApps)(function (item) {
-                return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_DataContext__WEBPACK_IMPORTED_MODULE_1__.RealmOceanDataContext)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRecordContext)(function (_a) {
+            }), false), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.ForEach)(tenantApps)(function (item) {
+                return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)((0,_DataContext__WEBPACK_IMPORTED_MODULE_2__.RealmOceanDataContext)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRecordContext)(function (_a) {
                     var appInfo = _a.data;
-                    return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRouteLink)("/app/".concat(appInfo.app_qualified_name))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTop, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIImage)(appInfo.app_icon).width(56).height(56), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)(appInfo.app_display_name))
+                    return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRouteLink)("/app/".concat(appInfo === null || appInfo === void 0 ? void 0 : appInfo.app_qualified_name))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTop, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIImage)(appInfo === null || appInfo === void 0 ? void 0 : appInfo.app_icon).width(56).height(56), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)(appInfo === null || appInfo === void 0 ? void 0 : appInfo.app_display_name))
                         .width(90)
                         .height(120)
                         .cursor('pointer'));
                 }).resource('app-mainstore-settings')
                     .filter({ id: item.app_id }))).width().height();
-            }), false)).wrap('wrap')), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRouteLink)("/app/com.tuvalsoft.app.organizationmanager/marketplace/apps")((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Button)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Install More Apps'))), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRouteLink)("/app/com.tuvalsoft.app.realmmanager")((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Button)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Install More Apps'))))).width(400).height(800);
+            }), false)).wrap('wrap')), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRouteLink)("/app/com.tuvalsoft.app.organizationmanager/marketplace/apps")((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Button)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)('Install More Apps'))), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRouteLink)("/app/com.tuvalsoft.app.realmmanager")((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Button)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)('Install More Apps'))))).width(400).height(800);
     }).resource('tenant-default-apps');
 }).resource('realm-default-apps'))); };
 
@@ -4841,6 +4847,7 @@ var LeftSidemenu = function (isLoading) {
             tooltip: (0,_BiosController__WEBPACK_IMPORTED_MODULE_3__.getAppName)(),
             selectable: true,
             view: function () {
+                _AppSelectMenu__WEBPACK_IMPORTED_MODULE_5__.runningApps.add((0,_BiosController__WEBPACK_IMPORTED_MODULE_3__.getAppFullName)());
                 return ((0,_DataContext__WEBPACK_IMPORTED_MODULE_4__.RealmOceanDataContext)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRecordsContext)(function (_a) {
                     var data = _a.data, total = _a.total, isLoading = _a.isLoading;
                     return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRouteLink)("/app/com.tuvalsoft.app.".concat((0,_BiosController__WEBPACK_IMPORTED_MODULE_3__.getAppName)()))(isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)('') :
