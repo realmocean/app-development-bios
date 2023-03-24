@@ -15,6 +15,25 @@ import { RealmDataContext } from "./DataContext";
 import { AppTaskbar } from "./views/AppSelectMenu";
 import { LeftSidemenu } from "./views/LeftSideMenu";
 
+export function getAppFullName() {
+    try {
+        let regex = /\/app\/com\.([A-Za-z]+)\.([A-Za-z]+)\.([A-Za-z]+)/i;
+
+        // Alternative syntax using RegExp constructor
+        // const regex = new RegExp('(?:^\\/app\\/+|\\G(?!^)\\.)\\K\\w+', 'g')
+
+        const str = window.location.href;
+
+   
+       const m = regex.exec(str);
+        //alert(`com.${m[1]}.${m[2]}.${m[3]}`)
+        return `com.${m[1]}.${m[2]}.${m[3]}`;
+    }
+    catch {
+        return '';
+    }
+}
+
 export function getAppName() {
     try {
         let regex = /\/app\/com\.([A-Za-z]+)\.([A-Za-z]+)\.([A-Za-z]+)/i;
@@ -24,8 +43,7 @@ export function getAppName() {
 
         const str = window.location.href;
 
-        let m;
-        console.log(m = regex.exec(str))
+      const m = regex.exec(str);
         return m[3];
     }
     catch {

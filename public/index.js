@@ -3281,6 +3281,7 @@ module.exports = styleTagTransform;
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "BiosController": () => (/* binding */ BiosController),
+/* harmony export */   "getAppFullName": () => (/* binding */ getAppFullName),
 /* harmony export */   "getAppName": () => (/* binding */ getAppName)
 /* harmony export */ });
 /* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
@@ -3307,14 +3308,27 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 
+function getAppFullName() {
+    try {
+        var regex = /\/app\/com\.([A-Za-z]+)\.([A-Za-z]+)\.([A-Za-z]+)/i;
+        // Alternative syntax using RegExp constructor
+        // const regex = new RegExp('(?:^\\/app\\/+|\\G(?!^)\\.)\\K\\w+', 'g')
+        var str = window.location.href;
+        var m = regex.exec(str);
+        //alert(`com.${m[1]}.${m[2]}.${m[3]}`)
+        return "com.".concat(m[1], ".").concat(m[2], ".").concat(m[3]);
+    }
+    catch (_a) {
+        return '';
+    }
+}
 function getAppName() {
     try {
         var regex = /\/app\/com\.([A-Za-z]+)\.([A-Za-z]+)\.([A-Za-z]+)/i;
         // Alternative syntax using RegExp constructor
         // const regex = new RegExp('(?:^\\/app\\/+|\\G(?!^)\\.)\\K\\w+', 'g')
         var str = window.location.href;
-        var m = void 0;
-        console.log(m = regex.exec(str));
+        var m = regex.exec(str);
         return m[3];
     }
     catch (_a) {
@@ -4833,7 +4847,7 @@ var LeftSidemenu = function (isLoading) {
                         (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIImage)((_tuval_core__WEBPACK_IMPORTED_MODULE_0__.is.array(data) && data.length > 0) ? data[0].app_icon : '').width(24).height(24)
                     //Icon(Icons.Activity).size(25)
                     ));
-                }).resource('app-mainstore-settings').filter({ app_qualified_name: (0,_BiosController__WEBPACK_IMPORTED_MODULE_3__.getAppName)() })));
+                }).resource('app-mainstore-settings').filter({ app_qualified_name: (0,_BiosController__WEBPACK_IMPORTED_MODULE_3__.getAppFullName)() })));
             },
             onClick: function () {
             }

@@ -4,7 +4,7 @@ import {
     Text, Spinner, ReactView, UIRouteLink, PopupButton, UIRecordsContext, useEffect
 } from "@tuval/forms"
 import React from "react"
-import { getAppName } from "../BiosController"
+import { getAppFullName, getAppName } from "../BiosController"
 import { RealmOceanDataContext } from "../DataContext"
 import { AppSelectMenu } from "./AppSelectMenu"
 
@@ -102,11 +102,11 @@ export const LeftSidemenu = (isLoading: boolean = false) => {
                         UIRecordsContext(({ data, total, isLoading }) => (
                             UIRouteLink(`/app/com.tuvalsoft.app.${getAppName()}`)(
                                 isLoading ? Text('') :
-                                    UIImage((is.array(data) && data.length > 0) ? data[0].app_icon : '').width(24).height(24)
+                                     UIImage((is.array(data) && data.length > 0) ? data[0].app_icon : '').width(24).height(24) 
                                 //Icon(Icons.Activity).size(25)
                             )
                         )
-                        ).resource('app-mainstore-settings').filter({ app_qualified_name: getAppName() })
+                        ).resource('app-mainstore-settings').filter({ app_qualified_name: getAppFullName() })
                     )
                 )
 
