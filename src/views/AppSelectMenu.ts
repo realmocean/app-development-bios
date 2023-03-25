@@ -15,7 +15,7 @@ export const AppTaskbar = () => (
 
                         UIRouteLink(`/app/${appName}`)(
                             VStack(
-                               
+
                                     UIImage((is.array(data) && data.length > 0) ? data[0].app_icon : '').width(24).height(24)
                             )
                                 .height(36).width(36)
@@ -87,7 +87,7 @@ export const AppSelectMenu = () => (
                                     )
                                 ).wrap('wrap')
                             ),
-                            UIRouteLink(`/app/com.tuvalsoft.app.organizationmanager/marketplace/apps`)(
+                           /*  UIRouteLink(`/app/com.tuvalsoft.app.organizationmanager/marketplace/apps`)(
                                 Button(
                                     Text('Install More Apps')
                                 )
@@ -96,9 +96,9 @@ export const AppSelectMenu = () => (
                                 Button(
                                     Text('Install More Apps')
                                 )
-                            )
+                            ) */
                         )
-                ).width(400).height(800)
+                ).width(400).height(600)
             ).resource('tenant-default-apps')
         ).resource('realm-default-apps')
     )
