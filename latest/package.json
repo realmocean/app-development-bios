@@ -104,9 +104,9 @@
     "devDependencies": {
         "@realmocean/services": "^21.0.0-beta.5",
         "@tuval/cg": "^0.0.16",
-        "@tuval/core": "^0.0.103",
-        "@tuval/forms": "^1.0.1-beta.137",
-        "@tuval/graphics": "^0.0.11",
+        "@tuval/core": "^0.0.102",
+        "@tuval/forms": "^1.0.1-beta.85",
+        "@tuval/graphics": "^0.0.10",
         "chokidar": "^3.5.3",
         "css-loader": "^6.7.3",
         "declaration-bundler-webpack-plugin": "^1.0.3",

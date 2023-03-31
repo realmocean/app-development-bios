@@ -9,9 +9,10 @@ import {
     Icon,
     Icons,
     MenuButton,
-    UIController, UIRouteLink, UIView, VStack, Text, UIRecordContext
+    UIController, UIRouteLink, UIView, VStack, Text, UIRecordContext, BiosTheme, useBiosTheme
 } from "@tuval/forms";
 import { RealmDataContext } from "./DataContext";
+import { theme } from "./theme/theme";
 import { AppTaskbar } from "./views/AppSelectMenu";
 import { LeftSidemenu } from "./views/LeftSideMenu";
 
@@ -49,6 +50,10 @@ export function getAppName() {
     catch {
         return '';
     }
+}
+
+const ComponentBios = () =>{
+
 }
 
 
@@ -89,7 +94,10 @@ export class BiosController extends UIController {
                    Icon(Icons[item]).size(25)
                )
            ) */
-            RealmDataContext(
+
+         BiosTheme({thema: theme})(()=> {
+           
+            return (  RealmDataContext(
                 VStack(
                     HStack({ alignment: cLeading })(
                         UIRecordContext(({ data }) =>
@@ -121,7 +129,7 @@ export class BiosController extends UIController {
                          ).width(50).background('#292F4C'), */
 
                         VStack({ alignment: cTopLeading })(
-                            DialogContainer(),
+                            //DialogContainer(),
                             HStack(
                                 Desktop('')
                             )
@@ -136,7 +144,11 @@ export class BiosController extends UIController {
                         .height('calc(100% - 50px)')
                 )
                     .background('#292F4C')
-            )
+            ))
+         }
+          
+         )
+        
 
             //.background('#292F4C')
         )

@@ -3287,8 +3287,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
 /* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _DataContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DataContext */ "./src/DataContext.ts");
-/* harmony import */ var _views_AppSelectMenu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/AppSelectMenu */ "./src/views/AppSelectMenu.ts");
-/* harmony import */ var _views_LeftSideMenu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/LeftSideMenu */ "./src/views/LeftSideMenu.tsx");
+/* harmony import */ var _theme_theme__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./theme/theme */ "./src/theme/theme.ts");
+/* harmony import */ var _views_AppSelectMenu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/AppSelectMenu */ "./src/views/AppSelectMenu.ts");
+/* harmony import */ var _views_LeftSideMenu__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/LeftSideMenu */ "./src/views/LeftSideMenu.tsx");
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -3304,6 +3305,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+
 
 
 
@@ -3335,6 +3337,8 @@ function getAppName() {
         return '';
     }
 }
+var ComponentBios = function () {
+};
 var BiosController = /** @class */ (function (_super) {
     __extends(BiosController, _super);
     function BiosController() {
@@ -3363,36 +3367,40 @@ var BiosController = /** @class */ (function (_super) {
                Icon(Icons[item]).size(25)
            )
        ) */
-        (0,_DataContext__WEBPACK_IMPORTED_MODULE_1__.RealmDataContext)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRecordContext)(function (_a) {
-            var data = _a.data;
-            return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)((data === null || data === void 0 ? void 0 : data.value) + ' | ' + getAppName()).fontSize('1.5rem').padding().whiteSpace('nowrap')).height().width(600);
-        }).resource('realminfos').filter({ id: 'REALM_NAME' }), (0,_views_AppSelectMenu__WEBPACK_IMPORTED_MODULE_2__.AppTaskbar)())
-            .fontSize('1.2rem')
-            .height(50).minHeight('50px')
-            .foregroundColor('white'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTop })((0,_views_LeftSideMenu__WEBPACK_IMPORTED_MODULE_3__.LeftSidemenu)(false), 
-        /*  VStack({ alignment: cTopLeading })(
-             HStack(
-                 UIRouteLink('/app/com.tuvalsoft.app.procetra')(
-                     Icon(Icons.Activity).size(25)
-                 )
-             ).width(50).height(50).foregroundColor("white")
-             ,
-             HStack(
-                 UIRouteLink('/app/com.tuvalsoft.app.organizationmanager')(
-                     Icon(Icons.AddNewDoc).size(25)
-                 )
-             ).width(50).height(50).foregroundColor("white"),
-             MenuButton(),
-         ).width(50).background('#292F4C'), */
-        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.DialogContainer)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Desktop)(''))
-            .overflow('hidden')
-            .cornerRadius(20))
-            .cornerRadius(20)
-            .background('#F6F7FB')
-            .overflow('hidden')
-            .width('100%'))
-            .height('calc(100% - 50px)'))
-            .background('#292F4C'))
+        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.BiosTheme)({ thema: _theme_theme__WEBPACK_IMPORTED_MODULE_2__.theme })(function () {
+            return ((0,_DataContext__WEBPACK_IMPORTED_MODULE_1__.RealmDataContext)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRecordContext)(function (_a) {
+                var data = _a.data;
+                return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)((data === null || data === void 0 ? void 0 : data.value) + ' | ' + getAppName()).fontSize('1.5rem').padding().whiteSpace('nowrap')).height().width(600);
+            }).resource('realminfos').filter({ id: 'REALM_NAME' }), (0,_views_AppSelectMenu__WEBPACK_IMPORTED_MODULE_3__.AppTaskbar)())
+                .fontSize('1.2rem')
+                .height(50).minHeight('50px')
+                .foregroundColor('white'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTop })((0,_views_LeftSideMenu__WEBPACK_IMPORTED_MODULE_4__.LeftSidemenu)(false), 
+            /*  VStack({ alignment: cTopLeading })(
+                 HStack(
+                     UIRouteLink('/app/com.tuvalsoft.app.procetra')(
+                         Icon(Icons.Activity).size(25)
+                     )
+                 ).width(50).height(50).foregroundColor("white")
+                 ,
+                 HStack(
+                     UIRouteLink('/app/com.tuvalsoft.app.organizationmanager')(
+                         Icon(Icons.AddNewDoc).size(25)
+                     )
+                 ).width(50).height(50).foregroundColor("white"),
+                 MenuButton(),
+             ).width(50).background('#292F4C'), */
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })(
+            //DialogContainer(),
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Desktop)(''))
+                .overflow('hidden')
+                .cornerRadius(20))
+                .cornerRadius(20)
+                .background('#F6F7FB')
+                .overflow('hidden')
+                .width('100%'))
+                .height('calc(100% - 50px)'))
+                .background('#292F4C')));
+        })
         //.background('#292F4C')
         );
     };
@@ -4665,6 +4673,386 @@ var RealmBrokerClient;
 
 /***/ }),
 
+/***/ "./src/theme/overrides/Typography.ts":
+/*!*******************************************!*\
+  !*** ./src/theme/overrides/Typography.ts ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Typography": () => (/* binding */ Typography)
+/* harmony export */ });
+function Typography(theme) {
+    return {
+        Typography: {
+            variantMapping: {
+                h1: 'h2',
+                h2: 'h2',
+                h3: 'h2',
+                h4: 'h2',
+                h5: 'h2',
+                h6: 'h2',
+                subtitle1: 'h2',
+                subtitle2: 'h2',
+                body1: 'span',
+                body2: 'span',
+            },
+            styleOverrides: {
+                paragraph: {
+                    marginBottom: theme.spacing(2),
+                },
+                gutterBottom: {
+                    marginBottom: theme.spacing(1),
+                },
+            },
+        },
+    };
+}
+
+
+/***/ }),
+
+/***/ "./src/theme/palette.ts":
+/*!******************************!*\
+  !*** ./src/theme/palette.ts ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "palette": () => (/* binding */ palette)
+/* harmony export */ });
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
+// ----------------------------------------------------------------------
+function createGradient(color1, color2) {
+    return "linear-gradient(to bottom, ".concat(color1, ", ").concat(color2, ")");
+}
+// SETUP COLORS
+var GREY = {
+    0: '#FFFFFF',
+    100: '#F9FAFB',
+    200: '#F4F6F8',
+    300: '#DFE3E8',
+    400: '#C4CDD5',
+    500: '#919EAB',
+    600: '#637381',
+    700: '#454F5B',
+    800: '#212B36',
+    900: '#161C24',
+    5008: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.alpha)('#919EAB', 0.08),
+    50012: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.alpha)('#919EAB', 0.12),
+    50016: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.alpha)('#919EAB', 0.16),
+    50024: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.alpha)('#919EAB', 0.24),
+    50032: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.alpha)('#919EAB', 0.32),
+    50048: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.alpha)('#919EAB', 0.48),
+    50056: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.alpha)('#919EAB', 0.56),
+    50080: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.alpha)('#919EAB', 0.8),
+};
+var PRIMARY = {
+    lighter: '#D1E9FC',
+    light: '#76B0F1',
+    main: 'rgb(0, 97, 235)',
+    dark: '#103996',
+    darker: '#061B64',
+    contrastText: '#fff',
+};
+var SECONDARY = {
+    lighter: '#D6E4FF',
+    light: '#84A9FF',
+    main: '#3366FF',
+    dark: '#1939B7',
+    darker: '#091A7A',
+    contrastText: '#fff',
+};
+var INFO = {
+    lighter: '#D0F2FF',
+    light: '#74CAFF',
+    main: '#1890FF',
+    dark: '#0C53B7',
+    darker: '#04297A',
+    contrastText: '#fff',
+};
+var SUCCESS = {
+    lighter: '#E9FCD4',
+    light: '#AAF27F',
+    main: '#15CD72',
+    dark: '#229A16',
+    darker: '#08660D',
+    contrastText: '#fff',
+};
+var WARNING = {
+    lighter: '#FFF7CD',
+    light: '#FFE16A',
+    main: '#FFC107',
+    dark: '#B78103',
+    darker: '#7A4F01',
+    contrastText: GREY[800],
+};
+var ERROR = {
+    lighter: '#FFE7D9',
+    light: '#FFA48D',
+    main: '#FF4842',
+    dark: '#B72136',
+    darker: '#7A0C2E',
+    contrastText: '#fff',
+};
+/* const GRADIENTS = {
+    primary: createGradient(PRIMARY.light, PRIMARY.main),
+    info: createGradient(INFO.light, INFO.main),
+    success: createGradient(SUCCESS.light, SUCCESS.main),
+    warning: createGradient(WARNING.light, WARNING.main),
+    error: createGradient(ERROR.light, ERROR.main),
+}; */
+var CHART_COLORS = {
+    violet: ['#826AF9', '#9E86FF', '#D0AEFF', '#F7D2FF'],
+    blue: ['#2D99FF', '#83CFFF', '#A5F3FF', '#CCFAFF'],
+    green: ['#2CD9C5', '#60F1C8', '#A4F7CC', '#C0F2DC'],
+    yellow: ['#FFE700', '#FFEF5A', '#FFF7AE', '#FFF3D6'],
+    red: ['#FF6C40', '#FF8F6D', '#FFBD98', '#FFF2D4'],
+};
+var defaultPalette = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.createPalette)({});
+var palette = {
+    common: { black: '#000', white: '#fff' },
+    primary: __assign({}, defaultPalette.primary),
+    secondary: __assign({}, SECONDARY),
+    info: __assign({}, defaultPalette.info),
+    success: __assign({}, defaultPalette.success),
+    warning: __assign({}, defaultPalette.warning),
+    error: __assign({}, defaultPalette.error),
+    grey: GREY,
+    /* gradients: GRADIENTS, */
+    chart: CHART_COLORS,
+    divider: GREY[50024],
+    text: { primary: GREY[800], secondary: GREY[600], disabled: GREY[500] },
+    background: { paper: '#fff', default: GREY[100], neutral: GREY[200] },
+    action: {
+        active: GREY[600],
+        hover: GREY[5008],
+        selected: GREY[50016],
+        disabled: GREY[50080],
+        disabledBackground: GREY[50024],
+        focus: GREY[50024],
+        hoverOpacity: 0.08,
+        disabledOpacity: 0.48,
+    },
+};
+
+
+/***/ }),
+
+/***/ "./src/theme/shadws.ts":
+/*!*****************************!*\
+  !*** ./src/theme/shadws.ts ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "customShadows": () => (/* binding */ customShadows),
+/* harmony export */   "shadows": () => (/* binding */ shadows)
+/* harmony export */ });
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _palette__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./palette */ "./src/theme/palette.ts");
+
+
+// ----------------------------------------------------------------------
+var LIGHT_MODE = _palette__WEBPACK_IMPORTED_MODULE_1__.palette.grey[500];
+var createShadow = function (color) {
+    var transparent1 = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.alpha)(color, 0.2);
+    var transparent2 = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.alpha)(color, 0.14);
+    var transparent3 = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.alpha)(color, 0.12);
+    return [
+        'none',
+        "0px 2px 1px -1px ".concat(transparent1, ",0px 1px 1px 0px ").concat(transparent2, ",0px 1px 3px 0px ").concat(transparent3),
+        "0px 3px 1px -2px ".concat(transparent1, ",0px 2px 2px 0px ").concat(transparent2, ",0px 1px 5px 0px ").concat(transparent3),
+        "0px 3px 3px -2px ".concat(transparent1, ",0px 3px 4px 0px ").concat(transparent2, ",0px 1px 8px 0px ").concat(transparent3),
+        "0px 2px 4px -1px ".concat(transparent1, ",0px 4px 5px 0px ").concat(transparent2, ",0px 1px 10px 0px ").concat(transparent3),
+        "0px 3px 5px -1px ".concat(transparent1, ",0px 5px 8px 0px ").concat(transparent2, ",0px 1px 14px 0px ").concat(transparent3),
+        "0px 3px 5px -1px ".concat(transparent1, ",0px 6px 10px 0px ").concat(transparent2, ",0px 1px 18px 0px ").concat(transparent3),
+        "0px 4px 5px -2px ".concat(transparent1, ",0px 7px 10px 1px ").concat(transparent2, ",0px 2px 16px 1px ").concat(transparent3),
+        "0px 5px 5px -3px ".concat(transparent1, ",0px 8px 10px 1px ").concat(transparent2, ",0px 3px 14px 2px ").concat(transparent3),
+        "0px 5px 6px -3px ".concat(transparent1, ",0px 9px 12px 1px ").concat(transparent2, ",0px 3px 16px 2px ").concat(transparent3),
+        "0px 6px 6px -3px ".concat(transparent1, ",0px 10px 14px 1px ").concat(transparent2, ",0px 4px 18px 3px ").concat(transparent3),
+        "0px 6px 7px -4px ".concat(transparent1, ",0px 11px 15px 1px ").concat(transparent2, ",0px 4px 20px 3px ").concat(transparent3),
+        "0px 7px 8px -4px ".concat(transparent1, ",0px 12px 17px 2px ").concat(transparent2, ",0px 5px 22px 4px ").concat(transparent3),
+        "0px 7px 8px -4px ".concat(transparent1, ",0px 13px 19px 2px ").concat(transparent2, ",0px 5px 24px 4px ").concat(transparent3),
+        "0px 7px 9px -4px ".concat(transparent1, ",0px 14px 21px 2px ").concat(transparent2, ",0px 5px 26px 4px ").concat(transparent3),
+        "0px 8px 9px -5px ".concat(transparent1, ",0px 15px 22px 2px ").concat(transparent2, ",0px 6px 28px 5px ").concat(transparent3),
+        "0px 8px 10px -5px ".concat(transparent1, ",0px 16px 24px 2px ").concat(transparent2, ",0px 6px 30px 5px ").concat(transparent3),
+        "0px 8px 11px -5px ".concat(transparent1, ",0px 17px 26px 2px ").concat(transparent2, ",0px 6px 32px 5px ").concat(transparent3),
+        "0px 9px 11px -5px ".concat(transparent1, ",0px 18px 28px 2px ").concat(transparent2, ",0px 7px 34px 6px ").concat(transparent3),
+        "0px 9px 12px -6px ".concat(transparent1, ",0px 19px 29px 2px ").concat(transparent2, ",0px 7px 36px 6px ").concat(transparent3),
+        "0px 10px 13px -6px ".concat(transparent1, ",0px 20px 31px 3px ").concat(transparent2, ",0px 8px 38px 7px ").concat(transparent3),
+        "0px 10px 13px -6px ".concat(transparent1, ",0px 21px 33px 3px ").concat(transparent2, ",0px 8px 40px 7px ").concat(transparent3),
+        "0px 10px 14px -6px ".concat(transparent1, ",0px 22px 35px 3px ").concat(transparent2, ",0px 8px 42px 7px ").concat(transparent3),
+        "0px 11px 14px -7px ".concat(transparent1, ",0px 23px 36px 3px ").concat(transparent2, ",0px 9px 44px 8px ").concat(transparent3),
+        "0px 11px 15px -7px ".concat(transparent1, ",0px 24px 38px 3px ").concat(transparent2, ",0px 9px 46px 8px ").concat(transparent3),
+    ];
+};
+var createCustomShadow = function (color) {
+    var transparent = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.alpha)(color, 0.24);
+    return {
+        z1: "0 1px 2px 0 ".concat(transparent),
+        z8: "0 8px 16px 0 ".concat(transparent),
+        z12: "0 0 2px 0 ".concat(transparent, ", 0 12px 24px 0 ").concat(transparent),
+        z16: "0 0 2px 0 ".concat(transparent, ", 0 16px 32px -4px ").concat(transparent),
+        z20: "0 0 2px 0 ".concat(transparent, ", 0 20px 40px -4px ").concat(transparent),
+        z24: "0 0 4px 0 ".concat(transparent, ", 0 24px 48px 0 ").concat(transparent),
+        primary: "0 8px 16px 0 ".concat((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.alpha)(_palette__WEBPACK_IMPORTED_MODULE_1__.palette.primary.main, 0.24)),
+        secondary: "0 8px 16px 0 ".concat((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.alpha)(_palette__WEBPACK_IMPORTED_MODULE_1__.palette.secondary.main, 0.24)),
+        info: "0 8px 16px 0 ".concat((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.alpha)(_palette__WEBPACK_IMPORTED_MODULE_1__.palette.info.main, 0.24)),
+        success: "0 8px 16px 0 ".concat((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.alpha)(_palette__WEBPACK_IMPORTED_MODULE_1__.palette.success.main, 0.24)),
+        warning: "0 8px 16px 0 ".concat((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.alpha)(_palette__WEBPACK_IMPORTED_MODULE_1__.palette.warning.main, 0.24)),
+        error: "0 8px 16px 0 ".concat((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.alpha)(_palette__WEBPACK_IMPORTED_MODULE_1__.palette.error.main, 0.24)),
+    };
+};
+var customShadows = createCustomShadow(LIGHT_MODE);
+var shadows = createShadow(LIGHT_MODE);
+
+
+/***/ }),
+
+/***/ "./src/theme/theme.ts":
+/*!****************************!*\
+  !*** ./src/theme/theme.ts ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "theme": () => (/* binding */ theme)
+/* harmony export */ });
+/* harmony import */ var _palette__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./palette */ "./src/theme/palette.ts");
+/* harmony import */ var _shadws__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./shadws */ "./src/theme/shadws.ts");
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _typography__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./typography */ "./src/theme/typography.ts");
+/* harmony import */ var _overrides_Typography__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./overrides/Typography */ "./src/theme/overrides/Typography.ts");
+
+
+
+
+
+var themeOptions = {
+    palette: _palette__WEBPACK_IMPORTED_MODULE_0__.palette,
+    shape: { borderRadius: 8 },
+    typography: _typography__WEBPACK_IMPORTED_MODULE_3__.typography,
+    /*  shadows, */
+    customShadows: _shadws__WEBPACK_IMPORTED_MODULE_1__.customShadows,
+};
+var theme = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.createTheme)(themeOptions);
+theme.components = (0,_overrides_Typography__WEBPACK_IMPORTED_MODULE_4__.Typography)(theme);
+//console.log(theme);
+
+
+/***/ }),
+
+/***/ "./src/theme/typography.ts":
+/*!*********************************!*\
+  !*** ./src/theme/typography.ts ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "typography": () => (/* binding */ typography)
+/* harmony export */ });
+// ----------------------------------------------------------------------
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+function pxToRem(value) {
+    return "".concat(value / 16, "rem");
+}
+function responsiveFontSizes(_a) {
+    var sm = _a.sm, md = _a.md, lg = _a.lg;
+    return {
+        '@media (min-width:600px)': {
+            fontSize: pxToRem(sm),
+        },
+        '@media (min-width:900px)': {
+            fontSize: pxToRem(md),
+        },
+        '@media (min-width:1200px)': {
+            fontSize: pxToRem(lg),
+        },
+    };
+}
+var FONT_PRIMARY = '"proxima-nova", "proxima nova", "helvetica neue", "helvetica", "arial", sans-serif';
+var typography = {
+    fontFamily: FONT_PRIMARY,
+    fontWeightRegular: 400,
+    fontWeightMedium: 600,
+    fontWeightBold: 700,
+    h1: __assign({ fontWeight: 300, lineHeight: 80 / 64, fontSize: pxToRem(40), margin: "10px" }, responsiveFontSizes({ sm: 52, md: 58, lg: 64 })),
+    h2: __assign({ fontWeight: 300, lineHeight: 64 / 48, fontSize: pxToRem(32), margin: "5px" }, responsiveFontSizes({ sm: 40, md: 44, lg: 48 })),
+    h3: __assign({ fontWeight: 300, lineHeight: 1.5, fontSize: pxToRem(24) }, responsiveFontSizes({ sm: 26, md: 30, lg: 32 })),
+    h4: __assign({ fontWeight: 300, lineHeight: 1.5, fontSize: pxToRem(20) }, responsiveFontSizes({ sm: 20, md: 24, lg: 24 })),
+    h5: __assign({ fontWeight: 300, lineHeight: 1.5, fontSize: pxToRem(18) }, responsiveFontSizes({ sm: 19, md: 20, lg: 20 })),
+    h6: __assign({ fontWeight: 300, lineHeight: 28 / 18, fontSize: pxToRem(17) }, responsiveFontSizes({ sm: 18, md: 18, lg: 18 })),
+    subtitle1: {
+        fontWeight: 600,
+        lineHeight: 1.5,
+        fontSize: pxToRem(16),
+    },
+    subtitle2: {
+        fontWeight: 600,
+        lineHeight: 22 / 14,
+        fontSize: pxToRem(14),
+    },
+    body1: {
+        lineHeight: 1.5,
+        fontSize: pxToRem(16),
+    },
+    body2: {
+        lineHeight: 22 / 14,
+        fontSize: pxToRem(14),
+    },
+    caption: {
+        lineHeight: 1.5,
+        fontSize: pxToRem(12),
+    },
+    overline: {
+        fontWeight: 700,
+        lineHeight: 1.5,
+        fontSize: pxToRem(12),
+        letterSpacing: 1.1,
+        textTransform: 'uppercase',
+    },
+    button: {
+        fontWeight: 700,
+        lineHeight: 24 / 14,
+        fontSize: pxToRem(14),
+        textTransform: 'capitalize',
+    },
+};
+
+
+/***/ }),
+
 /***/ "./src/views/AppSelectMenu.ts":
 /*!************************************!*\
   !*** ./src/views/AppSelectMenu.ts ***!
@@ -4681,7 +5069,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_core__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
 /* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _DataContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../DataContext */ "./src/DataContext.ts");
+/* harmony import */ var _BiosController__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../BiosController */ "./src/BiosController.ts");
+/* harmony import */ var _DataContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../DataContext */ "./src/DataContext.ts");
 var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from, pack) {
     if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
         if (ar || !(i in from)) {
@@ -4694,45 +5083,51 @@ var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from
 
 
 
+
 var runningApps = new Set();
-var AppTaskbar = function () { return ((0,_DataContext__WEBPACK_IMPORTED_MODULE_2__.RealmOceanDataContext)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ spacing: 20 }).apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.ForEach)(Array.from(runningApps))(function (appName) {
-    return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRecordsContext)(function (_a) {
+var AppTaskbar = function () {
+    return ((0,_DataContext__WEBPACK_IMPORTED_MODULE_3__.RealmOceanDataContext)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ spacing: 20 }).apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.ForEach)(Array.from(runningApps))(function (appName) {
+        return (0,_BiosController__WEBPACK_IMPORTED_MODULE_2__.getAppFullName)() !== appName ?
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRecordsContext)(function (_a) {
+                var data = _a.data, total = _a.total, isLoading = _a.isLoading;
+                return isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Fragment)() :
+                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cCenter, spacing: 2 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRouteLink)("/app/".concat(appName))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIImage)((_tuval_core__WEBPACK_IMPORTED_MODULE_0__.is.array(data) && data.length > 0) ? data[0].app_icon : '').width(24).height(24))
+                        .height(36).width(36)
+                        .background({ hover: 'rgba(0,0,0,.6)', default: '' })
+                        .cornerRadius(8)
+                        .cursor('pointer')), isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Fragment)() : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)().width(5).height(5).background('white').cornerRadius('50%')).width().height();
+            }).height()
+                .resource('app-mainstore-settings').filter({ app_qualified_name: appName }) : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Fragment)();
+    })).position(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.PositionTypes.Absolute)));
+};
+var AppSelectMenu = function () {
+    return ((0,_DataContext__WEBPACK_IMPORTED_MODULE_3__.RealmDataContext)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRecordsContext)(function (_a) {
         var data = _a.data, total = _a.total, isLoading = _a.isLoading;
-        return isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Fragment)() :
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cCenter, spacing: 2 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRouteLink)("/app/".concat(appName))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIImage)((_tuval_core__WEBPACK_IMPORTED_MODULE_0__.is.array(data) && data.length > 0) ? data[0].app_icon : '').width(24).height(24))
-                .height(36).width(36)
-                .background({ hover: 'rgba(0,0,0,.6)', default: '' })
-                .cornerRadius(8)
-                .cursor('pointer')), isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Fragment)() : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)().width(5).height(5).background('white').cornerRadius('50%')).width().height();
-    }).height()
-        .resource('app-mainstore-settings').filter({ app_qualified_name: appName });
-})).position(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.PositionTypes.Absolute))); };
-var AppSelectMenu = function () { return ((0,_DataContext__WEBPACK_IMPORTED_MODULE_2__.RealmDataContext)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRecordsContext)(function (_a) {
-    var data = _a.data, total = _a.total, isLoading = _a.isLoading;
-    return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRecordsContext)(function (_a) {
-        var tenantApps = _a.data, total = _a.total, isLoading = _a.isLoading;
-        return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)(isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Spinner)()) :
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)('Installed Apps').fontSize('1.2rem').fontWeight('600')).height(50), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.ScrollView)({ axes: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cVertical, alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTopLeading, spacing: 5 }).apply(void 0, __spreadArray(__spreadArray([], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.ForEach)(data)(function (item) {
-                return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)((0,_DataContext__WEBPACK_IMPORTED_MODULE_2__.RealmOceanDataContext)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRecordContext)(function (_a) {
-                    var appInfo = _a.data;
-                    return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRouteLink)("/app/".concat(appInfo === null || appInfo === void 0 ? void 0 : appInfo.app_qualified_name))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTop, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIImage)(appInfo === null || appInfo === void 0 ? void 0 : appInfo.app_icon).width(56).height(56), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)(appInfo === null || appInfo === void 0 ? void 0 : appInfo.app_display_name))
-                        .width(90)
-                        .height(120)
-                        .cursor('pointer'));
-                }).resource('app-mainstore-settings')
-                    .filter({ id: item.app_id }))).width().height();
-            }), false), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.ForEach)(tenantApps)(function (item) {
-                return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)((0,_DataContext__WEBPACK_IMPORTED_MODULE_2__.RealmOceanDataContext)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRecordContext)(function (_a) {
-                    var appInfo = _a.data;
-                    return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRouteLink)("/app/".concat(appInfo === null || appInfo === void 0 ? void 0 : appInfo.app_qualified_name))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTop, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIImage)(appInfo === null || appInfo === void 0 ? void 0 : appInfo.app_icon).width(56).height(56), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)(appInfo === null || appInfo === void 0 ? void 0 : appInfo.app_display_name))
-                        .width(90)
-                        .height(120)
-                        .cursor('pointer'));
-                }).resource('app-mainstore-settings')
-                    .filter({ id: item.app_id }))).width().height();
-            }), false)).wrap('wrap')))).width(400).height(600);
-    }).resource('tenant-default-apps');
-}).resource('realm-default-apps'))); };
+        return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRecordsContext)(function (_a) {
+            var tenantApps = _a.data, total = _a.total, isLoading = _a.isLoading;
+            return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)(isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Spinner)()) :
+                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)('Installed Apps').fontSize('1.2rem').fontWeight('600')).height(50), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.ScrollView)({ axes: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cVertical, alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTopLeading, spacing: 5 }).apply(void 0, __spreadArray(__spreadArray([], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.ForEach)(data)(function (item) {
+                    return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)((0,_DataContext__WEBPACK_IMPORTED_MODULE_3__.RealmOceanDataContext)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRecordContext)(function (_a) {
+                        var appInfo = _a.data;
+                        return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRouteLink)("/app/".concat(appInfo === null || appInfo === void 0 ? void 0 : appInfo.app_qualified_name))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTop, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIImage)(appInfo === null || appInfo === void 0 ? void 0 : appInfo.app_icon).width(56).height(56), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)(appInfo === null || appInfo === void 0 ? void 0 : appInfo.app_display_name))
+                            .width(90)
+                            .height(120)
+                            .cursor('pointer'));
+                    }).resource('app-mainstore-settings')
+                        .filter({ id: item.app_id }))).width().height();
+                }), false), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.ForEach)(tenantApps)(function (item) {
+                    return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)((0,_DataContext__WEBPACK_IMPORTED_MODULE_3__.RealmOceanDataContext)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRecordContext)(function (_a) {
+                        var appInfo = _a.data;
+                        return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRouteLink)("/app/".concat(appInfo === null || appInfo === void 0 ? void 0 : appInfo.app_qualified_name))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTop, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIImage)(appInfo === null || appInfo === void 0 ? void 0 : appInfo.app_icon).width(56).height(56), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)(appInfo === null || appInfo === void 0 ? void 0 : appInfo.app_display_name))
+                            .width(90)
+                            .height(120)
+                            .cursor('pointer'));
+                    }).resource('app-mainstore-settings')
+                        .filter({ id: item.app_id }))).width().height();
+                }), false)).wrap('wrap')))).width(400).height(600);
+        }).resource('tenant-default-apps');
+    }).resource('realm-default-apps')));
+};
 
 
 /***/ }),
