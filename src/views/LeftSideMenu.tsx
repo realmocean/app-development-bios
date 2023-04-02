@@ -98,13 +98,13 @@ export const LeftSidemenu = (isLoading: boolean = false) => {
             selectable: true,
             view: () => {
                 runningApps.add(getAppFullName());
-                
+
                 return (
                     RealmOceanDataContext(
                         UIRecordsContext(({ data, total, isLoading }) => (
                             UIRouteLink(`/app/com.tuvalsoft.app.${getAppName()}`)(
                                 isLoading ? Text('') :
-                                     UIImage((is.array(data) && data.length > 0) ? data[0].app_icon : '').width(24).height(24) 
+                                     UIImage((is.array(data) && data.length > 0) ? data[0].app_icon : '').width(24).height(24)
                                 //Icon(Icons.Activity).size(25)
                             )
                         )
@@ -125,7 +125,7 @@ export const LeftSidemenu = (isLoading: boolean = false) => {
                 UIRouteLink(`/app/com.tuvalsoft.app.procetra`)(
                     ReactView(notifyElement)
                 )
-                
+
 
             )
         },
@@ -298,35 +298,35 @@ export const LeftSidemenu = (isLoading: boolean = false) => {
                      .borderBottom('dashed 8px transparent')
                      .borderLeft('dashed 0px white')
                      .position(PositionTypes.Absolute)
- 
- 
+
+
                      .width(6).height(16)
- 
+
                      .left('calc(100% - 6px)')
              ).height().marginBottom('8px'), */
             /*  HStack(
                  HStack(
                      DynamicView(notifyElement)
                  ).height(36).width(36).cornerRadius(8)
- 
+
              ).height().marginBottom('8px'), */
             /*  HStack(
                  HStack(
                      DynamicView(boxElement)
                  ).height(36).width(36).cornerRadius(8)
- 
+
              ).height().marginBottom('8px'),
              HStack(
                  HStack(
                      DynamicView(myTaskElement)
                  ).height(36).width(36).cornerRadius(8)
- 
+
              ).height().marginBottom('8px'),
              HStack(
                  HStack(
                      DynamicView(myFavoritesElement)
                  ).height(36).width(36).cornerRadius(8)
- 
+
              ).height().marginBottom('8px'), */
             /*  Spacer(),
              HStack(
@@ -337,46 +337,46 @@ export const LeftSidemenu = (isLoading: boolean = false) => {
                          DynamicView(applicationsElement)
                      ).height(36).width(36).cornerRadius(8)
                  )
- 
+
              ).height().marginBottom('8px'), */
             /*  HStack(
                  HStack(
                      DynamicView(invitePeopleElement)
                  ).height(36).width(36).cornerRadius(8)
- 
+
              ).height().marginBottom('8px'),
              HStack(
                  HStack(
                      DynamicView(searchElement)
                  ).height(36).width(36).cornerRadius(8)
- 
+
              ).height().marginBottom('8px'),
              HStack(
                  HStack(
                      DynamicView(helpElement)
                  ).height(36).width(36).cornerRadius(8)
- 
+
              ).height().marginBottom('8px'), */
             /*  HDivider().height(1).marginBottom('12px').background('#676879'),
              HStack(
                  HStack(
                      DynamicView(myProducts)
                  ).height(36).width(36).cornerRadius(8)
- 
+
              ).height().marginBottom('8px'),
- 
+
              HStack(
                  HStack(
                      UIImage(accountImage).width(44).height(44).imageBorder('2px solid white')
                  ).height(36).width(36).cornerRadius(8)
- 
+
              ).height().marginBottom('8px'), */
             HStack(
                 Text('Standart').fontSize(13).fontWeight('500').foregroundColor('#00c875')
 
             ).height(32).background('#181d37'),
 
-        ).maxWidth('66px').minWidth('66px').background('#292F4C').paddingTop('10px').zIndex(2)
+        ).maxWidth('66px').minWidth('66px').background('var(--main-theme-color)').paddingTop('10px').zIndex(2)
     )
 }
 function Divider(): import("@tuval/forms").UIView {

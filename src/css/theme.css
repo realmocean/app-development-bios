@@ -1,4 +1,8 @@
 :root {
+    --main-theme-color:#292F4C;
+}
+
+:root {
     --color-highlight_blue: #cce5ff;
     --color-basic_blue: #0073ea;
     --color-dark_blue: #0060b9;
