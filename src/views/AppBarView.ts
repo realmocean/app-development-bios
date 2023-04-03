@@ -69,7 +69,6 @@ export const AppBar = () => (
                             )
                                 .foregroundColor({ hover: '#031b4e' })
                                 .background({ hover: '#e5e8ed' })
-
                                 .padding()
                                 .height()
                         ).width('100%')

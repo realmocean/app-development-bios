@@ -1,4 +1,4 @@
-import { EventBus } from "@tuval/core";
+import { EventBus, is } from "@tuval/core";
 import {
     cLeading,
     cTop,
@@ -26,12 +26,19 @@ export function getAppFullName() {
         const str = window.location.href;
 
 
-       const m = regex.exec(str);
+        const m = regex.exec(str);
+        if (m.length !== 4) {
+            return null
+        }
+
+        if (is.nullOrEmpty(m[3])) {
+            return null;
+        }
         //alert(`com.${m[1]}.${m[2]}.${m[3]}`)
         return `com.${m[1]}.${m[2]}.${m[3]}`;
     }
     catch {
-        return '';
+        return null;
     }
 }
 
@@ -44,7 +51,7 @@ export function getAppName() {
 
         const str = window.location.href;
 
-      const m = regex.exec(str);
+        const m = regex.exec(str);
         return m[3];
     }
     catch {
@@ -52,7 +59,7 @@ export function getAppName() {
     }
 }
 
-const ComponentBios = () =>{
+const ComponentBios = () => {
 
 }
 
@@ -95,59 +102,59 @@ export class BiosController extends UIController {
                )
            ) */
 
-         BiosTheme({thema: theme})(()=> {
+            BiosTheme({ thema: theme })(() => {
 
-            return (  RealmDataContext(
-                VStack(
-                    HStack({ alignment: cLeading })(
-                        UIRecordContext(({ data }) =>
-                            HStack({ alignment: cLeading })(
-                                Text(data?.value + ' | ' + getAppName()).fontSize('1.5rem').padding().whiteSpace('nowrap')
-                            ).height().width(600)
-                        ).resource('realminfos').filter({ id: 'REALM_NAME' }),
+                return (RealmDataContext(
+                    VStack(
+                        HStack({ alignment: cLeading })(
+                            UIRecordContext(({ data }) =>
+                                HStack({ alignment: cLeading })(
+                                    Text(data?.value + ' | ' + getAppName()).fontSize('1.5rem').padding().whiteSpace('nowrap')
+                                ).height().width(600)
+                            ).resource('realminfos').filter({ id: 'REALM_NAME' }),
 
-                        AppTaskbar()
-                    )
-                        .fontSize('1.2rem')
-                        .height(50).minHeight('50px')
-                        .foregroundColor('white'),
-                    HStack({ alignment: cTop })(
-                        LeftSidemenu(false),
-                        /*  VStack({ alignment: cTopLeading })(
-                             HStack(
-                                 UIRouteLink('/app/com.tuvalsoft.app.procetra')(
-                                     Icon(Icons.Activity).size(25)
-                                 )
-                             ).width(50).height(50).foregroundColor("white")
-                             ,
-                             HStack(
-                                 UIRouteLink('/app/com.tuvalsoft.app.organizationmanager')(
-                                     Icon(Icons.AddNewDoc).size(25)
-                                 )
-                             ).width(50).height(50).foregroundColor("white"),
-                             MenuButton(),
-                         ).width(50).background('#292F4C'), */
-
-                        VStack({ alignment: cTopLeading })(
-                            //DialogContainer(),
-                            HStack(
-                                Desktop('')
-                            )
-                                .overflow('hidden')
-                                .cornerRadius(20)
+                            AppTaskbar()
                         )
-                            .cornerRadius(20)
-                            .background('#F6F7FB')
-                            .overflow('hidden')
-                            .width('100%'),
-                    )
-                        .height('calc(100% - 50px)')
-                )
-                    .background('var(--main-theme-color)')
-            ))
-         }
+                            .fontSize('1.2rem')
+                            .height(50).minHeight('50px')
+                            .foregroundColor('white'),
+                        HStack({ alignment: cTop })(
+                            LeftSidemenu(false),
+                            /*  VStack({ alignment: cTopLeading })(
+                                 HStack(
+                                     UIRouteLink('/app/com.tuvalsoft.app.procetra')(
+                                         Icon(Icons.Activity).size(25)
+                                     )
+                                 ).width(50).height(50).foregroundColor("white")
+                                 ,
+                                 HStack(
+                                     UIRouteLink('/app/com.tuvalsoft.app.organizationmanager')(
+                                         Icon(Icons.AddNewDoc).size(25)
+                                     )
+                                 ).width(50).height(50).foregroundColor("white"),
+                                 MenuButton(),
+                             ).width(50).background('#292F4C'), */
 
-         )
+                            VStack({ alignment: cTopLeading })(
+                                //DialogContainer(),
+                                HStack(
+                                    Desktop('')
+                                )
+                                    .overflow('hidden')
+                                    .cornerRadius(20)
+                            )
+                                .cornerRadius(20)
+                                .background('#F6F7FB')
+                                .overflow('hidden')
+                                .width('100%'),
+                        )
+                            .height('calc(100% - 50px)')
+                    )
+                        .background('var(--main-theme-color)')
+                ))
+            }
+
+            )
 
 
             //.background('#292F4C')

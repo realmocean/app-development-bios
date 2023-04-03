@@ -1,5 +1,5 @@
 import { EventBus, is } from "@tuval/core";
-import { cTopLeading, cVertical, ForEach, HStack, ScrollView, Spinner, UIRecordsContext, VStack, Text, RecordsContextClass, UIImage, cTop, UIRouteLink, Button, cLeading, PositionTypes, cCenter, UIRecordContext, Fragment, useTheme, useBiosTheme } from "@tuval/forms";
+import { cTopLeading, cVertical, ForEach, HStack, ScrollView, Spinner, UIRecordsContext, VStack, Text, RecordsContextClass, UIImage, cTop, UIRouteLink, Button, cLeading, PositionTypes, cCenter, UIRecordContext, Fragment, useTheme, useBiosTheme, TooltipPositions } from "@tuval/forms";
 import { getAppFullName } from "../BiosController";
 import { RealmDataContext, RealmOceanDataContext } from "../DataContext";
 
@@ -10,7 +10,7 @@ export const AppTaskbar = () => {
    return ( RealmOceanDataContext(
         HStack({ spacing: 20 })(
             ...ForEach(Array.from(runningApps))(appName =>
-                getAppFullName() !== appName ?
+                getAppFullName() !== '' ?
                 UIRecordsContext(({ data, total, isLoading }) =>
                     isLoading ? Fragment() :
                         VStack({ alignment: cCenter, spacing: 2 })(
@@ -18,8 +18,10 @@ export const AppTaskbar = () => {
                             UIRouteLink(`/app/${appName}`)(
                                 VStack(
 
-                                    UIImage((is.array(data) && data.length > 0) ? data[0].app_icon : '').width(24).height(24)
+                                    UIImage((is.array(data) && data.length > 0) ? data[0]?.app_icon : '').width(24).height(24)
                                 )
+                                .tooltip(data[0]?.app_display_name)
+                                .tooltipPosition(TooltipPositions.BOTTOM)
                                     .height(36).width(36)
                                     .background({ hover: 'rgba(0,0,0,.6)', default: '' })
                                     .cornerRadius(8)
